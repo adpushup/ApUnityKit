@@ -34,11 +34,13 @@ Use the links below to download the Unity package for the plugin or to take a lo
 
 ### C: Usage:
 
+You just need to call `ApUnityKit.PingAdClosed()`, `ApUnityKit.PingAdOpened()`, `ApUnityKit.PingAdLoaded()`, and `ApUnityKit.PingAdImpression()` with the ad event callbacks. 
+
 ```csharp
 // Your Google Ads Events Callback Functions
 private void HandleOnAdClosed(object sender, EventArgs e)
 {
-		ApUnityKit.PingAdClosed(adUnitId, rewardedAd.GetResponseInfo().GetResponseId());
+    ApUnityKit.PingAdClosed(adUnitId, rewardedAd.GetResponseInfo().GetResponseId());
 }
 
 private void HandleOnAdOpened(object sender, EventArgs e)
@@ -57,39 +59,3 @@ private void HandleAdImpression(object sender, EventArgs e)
 }
 // ...
 ```
-
-## Data Collected By ApReactKit:
-
-<aside>
-🛡️ **Note:** We collect this data solely for the purpose of fraud detection and security purposes. We encrypt this data before sending it to our servers to prevent any data breaches and MITM Attacks. AdPushup always respects user privacy and takes all the measures to secure user data. No user data is shared with anyone. Please refer to the Privacy Policy Doc of AdPushup ApAppKit for further information.
-
-</aside>
-
-1. **Basic Device Data:**
-    1. Device Manufacturer, Brand, Model, OS Version.
-    2. Root Status, Emulator Status, and Play Services Installed Status.
-2. **Ad Responses:**
-    1. Ad Response ID
-    2. Ad Unit ID
-3. **Device Ids, Session IDs, and Fingerprints:**
-    1. ApAppKit uses Fingerprint JS **(GDPR/CCPA Compliant).**
-
-### **You must declare this data collection on Play Store Data Safety Declarations as well as in your Privacy Policy.**
-
-### Play Store Declaration:
-
-While filling up the Data Safety Form for your app, You should do the following three declarations.
-
-1. Tick on **Device or other IDs**.
-
-![Untitled](images/Untitled.png)
-
-1. Check **Shared Checkbox** in the ‘*Is this data collected, shared, or both?’* field.
-
-![Untitled](images/Untitled%201.png)
-
-1. Check the **Fraud prevention, security, and compliance Checkbox** in the ‘*Why is this user data shared? Select all that apply.*’ field.
-
-![Untitled](images/Untitled%202.png)
-
-That’s all… You are good to go…
