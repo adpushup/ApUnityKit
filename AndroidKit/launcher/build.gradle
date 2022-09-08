@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    implementation project(':unityLibrary')
+    }
+
+android {
+    compileSdkVersion 30
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 30
+        applicationId 'com.adpushup.unity.example'
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+        versionCode 1
+        versionName '1.0.2'
+    }
+
+
+    signingConfigs {
+        release {
+            storeFile file('/Users/ankushalg/Documents/Dev/Unity/keystore/debug/debug.keystore')
+            storePassword ''
+            keyAlias 'key0'
+            keyPassword ''
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.release
+            jniDebuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.release
+        }
+    }
+    packagingOptions {
+        jniLibs {
+            keepDebugSymbols += ['*/armeabi-v7a/*.so', '*/arm64-v8a/*.so']
+        }
+    }
+
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = false
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+    androidResources {
+        ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        noCompress '[\'.unity3d\', \'.ress\', \'.resource\', \'.obb\', \'.bundle\', \'.unityexp\'] + unityStreamingAssets.tokenize(\', \')'
+    }
+    lint {
+        abortOnError false
+    }
+}

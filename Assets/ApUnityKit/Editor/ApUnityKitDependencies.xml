@@ -1,0 +1,24 @@
+﻿<dependencies>
+  <androidPackages>
+    <androidPackage spec="androidx.work:work-runtime-ktx:2.7.1">
+      <repositories>
+        <repository>https://maven.google.com/</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="androidx.core:core-ktx:1.8.0">
+      <repositories>
+        <repository>https://maven.google.com/</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.google.android.gms:play-services-base:18.1.0">
+      <repositories>
+        <repository>https://maven.google.com/</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.github.fingerprintjs:fingerprint-android:1.2">
+      <repositories>
+        <repository>https://jitpack.io/</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+</dependencies>
